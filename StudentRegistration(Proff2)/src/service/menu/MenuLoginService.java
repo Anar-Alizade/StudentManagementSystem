@@ -1,0 +1,34 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package service.menu;
+
+import bean.Config;
+import java.util.Scanner;
+import service.inter.menu.MenuLoginServiceInter;
+
+/**
+ *
+ * @author user
+ */
+public class MenuLoginService implements MenuLoginServiceInter {
+
+    @Override
+    public void processAbstract() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("username:");
+        String username = sc.nextLine();
+
+        Scanner sc2 = new Scanner(System.in);
+        System.out.println("password:");
+        String password = sc2.nextLine();
+
+        if (!(username.equals("user") && password.equals("11111"))) {
+            throw new IllegalArgumentException("Username or password is invalid");
+        }
+
+        Config.setLoggedIn(true);
+    }
+
+}
